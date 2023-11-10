@@ -16,3 +16,22 @@ SELECT SUM(shipping_fee) FROM orders
 	
 -- Aufgabe 3.)
 
+SELECT ship_city, AVG(shipping_fee) FROM orders
+	GROUP BY ship_city;
+	
+SELECT AVG(shipping_fee) FROM orders
+	WHERE employee_id = 9;
+	
+-- Aufgabe 4.)
+
+SELECT MIN(shipping_fee), MAX(shipping_fee) FROM orders;
+	
+SELECT MIN(shipping_fee), MAX(shipping_fee) FROM orders
+	WHERE ship_state_province = "NY";
+	
+-- Aufgabe 5.)
+
+SELECT COUNT(*) FROM orders;
+
+SELECT COUNT(customer_id) FROM orders;
+
