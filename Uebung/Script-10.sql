@@ -26,7 +26,11 @@ SELECT purchase_orders.id, purchase_orders.submitted_date,
 SELECT COUNT(orders.ship_city), orders.ship_city FROM orders
 GROUP BY orders.ship_city HAVING COUNT(orders.ship_city) > 1;
 
+-- orders-Tabelle "Los Angelas"
 
+SELECT AVG(shipping_fee), MAX(shipping_fee), MIN(shipping_fee), ship_city,
+	COUNT(ship_city) AS 'Anzahl Lieferungen' FROM orders GROUP BY ship_city
+	HAVING COUNT(ship_city) > 2 ORDER BY COUNT(ship_city) DESC;
 
 
 
