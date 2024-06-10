@@ -62,7 +62,26 @@ SELECT orders.id, orders.order_date, employees.last_name, employees.first_name,
 	customers.last_name, customers.first_name FROM orders, customers, employees 
 	WHERE customers.id = orders.customer_id AND employees.id = orders.employee_id;
 
+-- Aufgabe 5b.)
 
+SELECT order_details.id, orders.ship_name, products.product_name, order_details_status.status_name 
+	FROM order_details, orders, products, order_details_status 
+		WHERE order_details.order_id = orders.id 
+			AND order_details.product_id = products.id
+				AND order_details.status_id = order_details_status.id;
+
+SELECT order_details.id, orders.ship_name, products.product_name, order_details_status.status_name 
+	FROM order_details INNER JOIN orders ON order_details.order_id = orders.id 
+		INNER JOIN products ON order_details.product_id = products.id 
+			INNER JOIN order_details_status ON order_details.status_id = order_details_status.id;			
+			
+			
+-- Aufgabe 6.)
+
+SELECT * FROM orders WHERE ship_state_province = "NY";
+
+SELECT * FROM orders WHERE id IN (SELECT id FROM orders WHERE 
+	ship_state_province = "NY");	
 
 
 
